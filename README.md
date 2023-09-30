@@ -1,2 +1,2 @@
 # ML-Binary-classification-LR
-Binary classification using Logistic Regressor using California housing dataset
+Binary classification using Logistic Regressor using California housing dataset.
