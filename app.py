@@ -3,6 +3,7 @@ import pickle
 import tensorflow as tf
 import gradio as gr
 import pandas as pd
+import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 data_heading = ['longitude', 'latitude', 'housing_median_age', 'total_rooms',
