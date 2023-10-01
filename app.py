@@ -22,15 +22,18 @@ def test_ml_model(longitude, latitude, housing_median_age, total_rooms, total_be
                             households, median_income, median_house_value]], columns=data_heading)
     df_test_norm = pd.DataFrame(scaler.fit_transform(df_test), columns=data_heading)
     features = {name:np.array(value) for name, value in df_test_norm.items()}
+    
     result = loaded_model.predict(features)
-    return (f'predicted: {result}')
+    if result['dense'][0][0] > 0.5:
+        return 'Prediction: Houses in this neighborhood are above average price.'
+    return 'Prediction: Houses in this neighborhood are below average price.'
 
 demo = gr.Interface(fn=test_ml_model,
                     inputs=[gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0),
                             gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0),
-                            gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0),], 
+                            gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0)], 
                     outputs="text",
                     description="It will help to classifiy the houses in this neighborhood above a avaerage price or not.",
                     title='Classifier')
     
-demo.launch() 
+demo.launch()
