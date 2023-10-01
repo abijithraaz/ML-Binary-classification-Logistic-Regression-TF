@@ -20,8 +20,8 @@ def test_ml_model(longitude, latitude, housing_median_age, total_rooms, total_be
                             total_rooms, total_bedrooms, population,
                             households, median_income, median_house_value], columns=data_heading)
     df_test_norm = pd.DataFrame(scaler(df_test), columns=data_heading)
-    
-    result = loaded_model.predict(df_test_norm)
+    features = {name:np.array(value) for name, value in df_test_norm.items()}
+    result = loaded_model.predict(features)
     return (f'predicted: {result}')
 
 demo = gr.Interface(fn=test_ml_model,
