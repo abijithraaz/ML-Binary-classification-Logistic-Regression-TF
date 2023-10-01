@@ -31,6 +31,6 @@ demo = gr.Interface(fn=test_ml_model,
                             gr.Number(value=0.0),], 
                     outputs="text",
                     description="It will help to classifiy the houses in this neighborhood above a avaerage price or not.",
-                    title='Synthetic Data Linear Regressor Solution')
+                    title='Classifier')
     
 demo.launch() 
