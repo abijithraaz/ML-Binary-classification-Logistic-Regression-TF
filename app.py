@@ -27,8 +27,7 @@ def test_ml_model(longitude, latitude, housing_median_age, total_rooms, total_be
 demo = gr.Interface(fn=test_ml_model,
                     inputs=[gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0),
                             gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0),
-                            gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0),
-                            gr.Number(value=0.0),], 
+                            gr.Number(value=0.0), gr.Number(value=0.0), gr.Number(value=0.0),], 
                     outputs="text",
                     description="It will help to classifiy the houses in this neighborhood above a avaerage price or not.",
                     title='Classifier')
